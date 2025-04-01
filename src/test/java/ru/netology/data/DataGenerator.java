@@ -16,7 +16,6 @@ public class DataGenerator {
         return LocalDate.now().plusDays(shift).format(DateTimeFormatter.ofPattern("dd.MM.yyyy"));
     }
 
-
     public static String generateCity() {
         String[] cities = new String[] {"Томск", "Рязань", "Абакан", "Улан-Удэ", "Уфа", "Якутск",
                 "Москва", "Казань", "Владивосток", "Ставрополь", "Херсон"};
@@ -31,6 +30,11 @@ public class DataGenerator {
     public static String generatePhone(String locale) {
         Faker faker = new Faker(new Locale(locale));
         return faker.phoneNumber().phoneNumber();
+    }
+
+    public static String generateWrongPhone(String locale) {
+        Faker faker = new Faker(new Locale(locale));
+        return faker.numerify("###");
     }
 
     public static class Registration {
